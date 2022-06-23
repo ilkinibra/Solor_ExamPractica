@@ -1,0 +1,9 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<img src="~/assets/img/@Model.ImageUrl"/>
+<h2>Description:@Model.Description</h2>
+<a class="btn btn-dark" asp-action="Index" asp-controller="Card">Cancel</a>
+

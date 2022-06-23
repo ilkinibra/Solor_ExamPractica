@@ -1,0 +1,331 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <main>
+      <section class="slider">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+               @foreach (var item in Model.Sliders)
+                {
+                <div class="carousel-item active"
+              style="height: 100vh; min-height: 400px"
+            >
+             
+                  
+              <img
+                src="~/assets/img/@item.ImageUrl"
+                class="d-block w-100 h-100"
+                alt="..."
+              />
+              <div class="carousel-caption">
+                <h3>@item.Title</h3>
+                <h2 class="animated bounceInRight" style="animation-delay: 1s">
+                  @item.Desc1
+                </h2>
+                <h3 class="animated bounceInLeft" style="animation-delay: 2s">
+                 @item.Desc2
+                </h3>
+                <div
+                  class="btn-group"
+                  role="group"
+                  aria-label="Basic checkbox toggle button group"
+                >
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    id="btncheck1"
+                    autocomplete="off"
+                  />
+                  <label
+                    class="btn btn-outline-light"
+                    style="
+                      background-color: white;
+                      color: black;
+                      width: 200px;
+                      height: 70px;
+                      font-size: 30px;
+                    "
+                    for="btncheck1"
+                    >Get A Quote</label
+                  >
+                </div>
+              </div>
+              
+            
+                </div>
+                }
+            
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="About">
+        <div class="container">
+          <div class="row">
+            <div class="card mb-3" style="max-width: 1540px; border: none">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src="~/assets/img/@Model.About.ImageUrl"
+                    class="img-fluid rounded-start"
+                    alt="..."
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5
+                      class="card-title"
+                      style="font-size: 30px; color: #009cff"
+                    >
+                     @Model.About.Title
+                    </h5>
+                    <p
+                      class="card-text"
+                      style="font-size: 50px; color: #009cff"
+                    >
+                      @Model.About.SubTitle1
+                    </p>
+                    <p
+                      class="card-text"
+                      style="font-size: 50px; color: #22395d"
+                    >
+                      @Model.About.SubTitle2
+                    </p>
+                    <p class="card-text" style="font-size: 23px; color: gray">
+                      @Model.About.Description
+                    </p>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      style="font-size: 2rem !important; padding: 1rem 3rem"
+                    >
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services">
+        <div class="container">
+          <div class="row">
+            <h6 style="color: #009cff">SERVICES</h6>
+            <h1 style="color: #22395d">What We Cover</h1>
+            @foreach (var item in Model.Services)
+                {
+            <div class="card" style="width: 37rem; border: none">
+              <img
+                src="~/assets/img/@item.ImageUrl"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <p class="card-text">@item.Title</p>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="team">
+        <div class="container">
+          <div class="row">
+            <h6 style="color: #009cff">Team</h6>
+            <h1 style="color: #22395d">Meet The Team</h1>
+            <div class="right-left d-flex">
+              <div class="container-fluid mt-2">
+                <div class="row">
+                  <div class="col-md-7 col-lg-8 col-xl-7 mt-md-5">
+                    <div id="santabox">
+                      <div class="card mb-4" style="border: none">
+                          @foreach (var item in Model.Teams)
+                                        {
+                        <div
+                          class="card-header text-center"
+                          style="padding: 0px"
+                        >
+                          <img
+                            id="hat"
+                            src="~/assets/img/@item.ImageUrl"
+                            alt="hat"/>
+                          <h3 style="
+                              padding: 20px;
+                              color: #22395d;
+                              font-size: 20px;
+                              font-weight: bold;" >
+                              @item.Title
+                          </h3>
+                          <h3 style="color: gray">@item.Position</h3>
+                          <h3 style="color: gray">
+                              @item.Description
+                          </h3>
+                          <div class="team-social-icons">
+                            <ul class="social-icons">
+                              <li>
+                                <a href="" class="social-icon"
+                                  ><i class="fa-brands fa-twitter"></i
+                                ></a>
+                              </li>
+                              <li>
+                                <a href="" class="social-icon"
+                                  ><i class="fa-brands fa-facebook"></i
+                                ></a>
+                              </li>
+                              <li>
+                                <a href="" class="social-icon"
+                                  ><i class="fa-brands fa-linkedin-in"></i
+                                ></a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                         }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faqs">
+        <div class="container">
+          <div class="row">
+            <div class="faqs-title text-center">
+              <h3 style="color:#009cff; font-size: 25px; margin-top: 90px;">FAQS</h3>
+              <h2 style="color:#22395d; font-size:50px;">You Should Know</h2>
+            </div>
+            <div class="button-faqs text-center">
+          <div class="quations-wrapper d-flex ">
+            <div class="left-quations col-6">
+              <h3 style="color: #22395d; font-size: 30px;">Why Switch to Solar?</h3>
+              <ul>
+                <li>Vero dolor amet no eos ipsum erat<i class="fa-solid fa-check" style="color:#28A745;"></i></li>
+                <li>Lorem tempor tempor gubergron dolor dolor dolor<i class="fa-solid fa-check"style="color:#28A745;"></i></li>
+                <li>Nonumy tempor dolores sadipscing duo<i class="fa-solid fa-check"style="color:#28A745;"></i></li>
+                <li>Kasd dolor ea dolores ut nonumy<i class="fa-solid fa-check"style="color:#28A745;"></i></li>
+              </ul>
+            </div>
+            <div class="right-quations">
+              <h3 style="color:#22395d; font-size: 30px;">Why Choose Us?</h3>
+              <ul>
+                <li><i class="fa-solid fa-check"style="color:#28A745;"></i>Vero dolor amet no eos ipsum erat</li>
+                <li><i class="fa-solid fa-check"style="color:#28A745;"></i>Lorem tempor tempor gubergron dolor dolor dolor </li>
+                <li><i class="fa-solid fa-check"style="color:#28A745;"></i>Nonumy tempor dolores sadipscing duo</li>
+                <li><i class="fa-solid fa-check"style="color:#28A745;"></i>Kasd dolor ea dolores ut nonumy</li>
+              </ul>
+            </div>
+          </div>
+          <div class="button-area pt-5">
+            <a class="btn btn-primary" style="font-size: 25px;">Get A Quote</a>
+          </div>
+        </div>
+          </div>
+        </div>
+      </section>
+
+      
+    <section class="testimonial text-center">
+      <div class="container">
+          <div class="heading white-heading mt-5" style="color: #009cff; font-size: 30px;">
+              Testimonial
+          </div>
+          <h3 style="color: #22395d; font-size: 60px; text-align: center;">Our Clients Say</h3>
+          <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+              <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                      <div class="testimonial4_slide">
+                          <img src="~/assets/img/testimonial-1.jpg" class="img-circle img-responsive" />
+                          <p style="color: black;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                          <h4>Client Name</h4>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="testimonial4_slide">
+                          <img src="~/assets/img/testimonial-2.jpg" class="img-circle img-responsive" /><p style="color:black;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                          <h4>CLient Name</h4>
+                      </div>
+                  </div>
+              </div>
+              <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+      </div>
+  </section>
+
+  <section class="contact-us">
+
+<div class="container">
+	<div class="row">
+			<h1>CONTACT</h1>
+	</div>
+	<div class="row">
+			<h4 style="text-align:center;">Get In Touch</h4>
+	</div>
+	<div class="row input-container">
+			<div class="col-xs-12">
+				<div class="styled-input wide">
+					<input type="text" required />
+					<label>Name</label> 
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12">
+				<div class="styled-input">
+					<input type="text" required />
+					<label>Email</label> 
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12">
+				<div class="styled-input" style="float:right;">
+					<input type="text" required />
+					<label>Phone Number</label> 
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="styled-input wide">
+					<textarea required></textarea>
+					<label>Message</label>
+				</div>
+			</div>
+			<div class="col-xs-12 text-center">
+				<div class="btn-lrg submit-btn">Send Message</div>
+			</div>
+	</div>
+</div>
+  </section>
+    </main>
+
